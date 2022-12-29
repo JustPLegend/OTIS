@@ -7,7 +7,7 @@ Simple IOT project
 2. Registration on Firebase (https://firebase.google.com/)
 3. Registration on Arduino - optional (https://www.arduino.cc/)
 
-# WHat is TinkerCad?
+# What is TinkerCad?
 
 Tinkercad is a free, online 3D design and modeling tool that is widely used in the fields of computer science, engineering, and design. It is particularly popular for use in education and for prototyping electronic circuits and mechanical designs.
 
