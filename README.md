@@ -1,11 +1,31 @@
-# Lights
-Simple IOT project 
+ 
+# Software (installing on local machine)
+
+1. **Install VStudio Code** (https://code.visualstudio.com/)
+    a)**Extensions** 
+        i.	 **Live Server** ( Launch a development local Server with live reload feature for static & dynamic pages) 
+        ii.  **Node Essentials**  (Essential extensions for node development and collaboration) 
+
+2. **Download NodeJS** (https://nodejs.org/en/)
+    Check the version of node: node -v
+
+    Terminal compatible with Windows: http://mintty.github.io/
+
+3. Installation of **Firebase tools** using CMD (it's necessary install in folder where are html files)
+   **Important**: To setup communication between two html pages, user should have index.html and on-off page in two separate folders.
+   In each folder do commands:
+        a) npm install -g firebase-tools
+        b) firebase login
+        c) firebase init  
+
 
 # Prerequisite
 
-1. Registration on TinkerCad (https://www.tinkercad.com/)
-2. Registration on Firebase (https://firebase.google.com/)
-3. Registration on Arduino - optional (https://www.arduino.cc/)
+1. Registration on **TinkerCad** (https://www.tinkercad.com/)
+2. Registration on **Firebase** (https://firebase.google.com/)
+3. Registration on **Arduino** - optional (https://www.arduino.cc/)
+
+
 
 # What is TinkerCad?
 
