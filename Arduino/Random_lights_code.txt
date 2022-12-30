@@ -1,0 +1,38 @@
+void setup()
+{
+  pinMode(10, OUTPUT);
+//pinMode(6, OUTPUT);
+  pinMode(11,OUTPUT);
+
+  randomSeed(analogRead(0)); // seed the random number generator
+	
+  /*The "randomSeed" function is a built-in function in 
+  the Arduino programming language (based on the C++ 
+  programming language) that is used to initialize the 
+  random number generator. 
+  
+  It is typically used in conjunction with the
+  "random" function, which generates a 
+  random number within a specified range.
+
+  The "randomSeed" function takes a single argument, which 
+  is used to "seed" the random number generator.
+  A seed is a value that is used to initialize the
+  generator and determine the sequence of random numbers that it 
+  will produce. By using different seeds,
+  you can generate different sequences of random numbers. */
+
+}
+
+void loop()
+{
+  int randomLight = random(6, 12); // select a random light (10, 11, or 12)
+
+  digitalWrite(randomLight, HIGH);  // turn on the selected light
+  delay(100); // Wait for 100 millisecond(s)
+  digitalWrite(randomLight, LOW);  // turn off the selected light
+  delay(100); 
+  
+  //The "delay" function is used to pause the program
+  //for 1 second between each random number generation
+}
