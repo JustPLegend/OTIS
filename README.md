@@ -23,7 +23,7 @@
 
 1. Registration on **TinkerCad** (https://www.tinkercad.com/)
 2. Registration on **Firebase** (https://firebase.google.com/)
-3. Registration on **Arduino** - optional (https://www.arduino.cc/)
+3. Registration on Arduino - optional (https://www.arduino.cc/)
 
 
 
