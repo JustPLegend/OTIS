@@ -170,6 +170,9 @@
       Svjetla(1, 0, 0, 0);          //crvena  //opposite 0,0,1
 
       setTimeout(function () {
+        Svjetla(1, 0, 0, 0);         //crvena   //0, 1, 0
+      }, 1000);
+      setTimeout(function () {
         Svjetla(0, 1, 0, 0);         //crvena   //0, 1, 0
       }, 1000);
       //1000 sek 
@@ -195,7 +198,7 @@
       let s1 = Math.round(Math.random());
       let s2 = Math.round(Math.random());
       let s3 = Math.round(Math.random());
-      let s4 = Math.round(Math.random());          //dodato 4 svjetlo crveno
+      let s4 = Math.round(Math.random());
       Svjetla(s1, s2, s3, s4);
     }
 
