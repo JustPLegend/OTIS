@@ -19,7 +19,12 @@
   }
 
   h4 {
-  font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  a {
+    color: #fff;
+
   }
 </style>
 
@@ -30,12 +35,16 @@
       <h1>DRIOT </h1>
 
       <p>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</p>
-
-      <a href="https://tinyurl.com/signInArduino"> Sign In Arduino </a>
+      <br>
+      <a href="https://tinyurl.com/signInArduino"> Sign In Arduino | </a>
+      <a href="https://firebase.google.com/"> Firebase login | </a>
+      <a href="https://www.tinkercad.com/">Tinkercad</a>
     </div>
     <br>
-    <h4> Dekorativne svjetiljke izumio je Carl Otis, zaposlenik u NOMA Electric Company 1940 – ih. NOMA je tada prodavala na milione svake godine. U 21 vijeku, 
-      kada je tehnologija napredovala možemo da koristimo LED svjetla za ukrašavanje jelke, domova, poslovnih objekata tokom čitave godine
+    <h4> Dekorativne svjetiljke izumio je Carl Otis, zaposlenik u NOMA Electric Company 1940 – ih. NOMA je tada
+      prodavala na milione svake godine. U 21 vijeku,
+      kada je tehnologija napredovala možemo da koristimo LED svjetla za ukrašavanje jelke, domova, poslovnih objekata
+      tokom čitave godine
     </h4>
 
   </div>
@@ -47,7 +56,22 @@
     <button class="mode_btn" onclick="PostaviVrijednost(1,'/Glavni/Mod')">Mode 1</button>
     <button class="mode_btn" onclick="PostaviVrijednost(2,'/Glavni/Mod')">Mode 2</button>
     <button class="mode_btn" onclick="PostaviVrijednost(3,'/Glavni/Mod')">Mode 3</button>
+    <!--  MODE 4 -->
+    <button class="mode_btn" onclick="PostaviVrijednost(4,'/Glavni/Mod')"> Mode 4</button>
+
+
     <button class="reset_btn" onclick="PostaviVrijednost(0,'/Glavni/Mod')">Reset</button>
+
+  </div>
+
+  <br>
+  <br>
+  <div class="container">
+    <hr>
+    <h5> MODE 1 - Svjetiljke će po redu da se pale, 1, 2, 3</h5>
+    <h5> MODE 2 - Svjetiljke će da se sve pale / gase </h5>
+    <h5> MODE 3 - Svjetiljke će random da se pale / gase </h5>
+    <h5> Mode 4 - Izgasena zuta svjetiljka </h5>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
@@ -75,11 +99,11 @@
     firebase.initializeApp(firebaseConfig);
 
     const db = firebase.database();
-    function PostaviVrijednost(vrijednost,putanja) {
+    function PostaviVrijednost(vrijednost, putanja) {
       db.ref(putanja).set(vrijednost);
     }
 
-    
+
 
   </script>
 
