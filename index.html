@@ -36,7 +36,15 @@
     height: 100px;
   }
 
+  /*Dodato svjetlo CRVENO*/
+  .square4 {
+    background-color: rgb(91, 30, 2);
+    width: 100px;
+    height: 100px;
+  }
+
   .squareWrapper {
+    /*Oko svjetla crni krug*/
     border: 1px solid black;
     width: 100px;
     height: 100px;
@@ -46,17 +54,25 @@
 
     font-family: 'Times New Roman', Times, serif;
   }
+
+  a {
+    color: #fff;
+
+  }
 </style>
 
 <body>
 
   <div class="container">
     <div class="jumbotron">
-      <h1>DRIOT </h1>
+      <h1>DRIOT - LIGHTS </h1>
 
       <p>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</p>
+      <br>
 
-      <a href="https://tinyurl.com/signInArduino"> Sign In Arduino </a>
+      <a href="https://tinyurl.com/signInArduino"> Sign In Arduino | </a>
+      <a href="https://firebase.google.com/"> Firebase login | </a>
+      <a href="https://www.tinkercad.com/">Tinkercad</a>
     </div>
 
     <h4> Dekorativne svjetiljke izumio je Carl Otis, zaposlenik u NOMA Electric Company 1940 – ih. NOMA je tada
@@ -97,6 +113,15 @@
         </div>
       </div>
 
+      <!---------------DODATO SVJETLO---------------------->
+      <div align="center" class="col-md-4">
+        <!---crveno--->
+        <h4> DARK RED LIGHT </h4>
+        <div class="squareWrapper">
+          <div class="square4"> </div>
+        </div>
+      </div>
+
 
     </div>
     <!--class row-->
@@ -130,57 +155,87 @@
     let zelena = document.querySelector('.square3');
     let zuta = document.querySelector('.square1');
     let plava = document.querySelector('.square2');
-    let reset;
+    let crvena = document.querySelector('.square4');  //Dodata crvena
+
     let interval;
-    function Svjetla(s1, s2, s3) {
+
+    function Svjetla(s1, s2, s3, s4) {
       zelena.style.opacity = s1;
       zuta.style.opacity = s2;
       plava.style.opacity = s3;
+      crvena.style.opacity = s4; //dodata crvena
     }
+
     function mod1() {
-      Svjetla(1, 0, 0);
+      Svjetla(1, 0, 0, 0);          //crvena  //opposite 0,0,1
 
       setTimeout(function () {
-        Svjetla(0, 1, 0);
+        Svjetla(0, 1, 0, 0);         //crvena   //0, 1, 0
       }, 1000);
+      //1000 sek 
       setTimeout(function () {
-        Svjetla(0, 0, 1);
+        Svjetla(0, 0, 1, 0);       //crvena     //1, 0, 0
       }, 2000);
+
+      setTimeout(function () {
+        Svjetla(0, 0, 0, 1);         //crvena   //0, 1, 0
+      }, 2500);
     }
 
     function mod2() {
       setTimeout(function () {
-        Svjetla(1, 1, 1);
+        Svjetla(1, 1, 1, 1);           //deff:sva upaljena (1,1,1)   (1,0,1) - zuta izgasena 
       }, 1000);
       setTimeout(function () {
-        Svjetla(0, 0, 0);
+        Svjetla(0, 0, 0, 0);         //sva izgasena  
       }, 2000);
     }
+
     function mod3() {
       let s1 = Math.round(Math.random());
       let s2 = Math.round(Math.random());
       let s3 = Math.round(Math.random());
-      Svjetla(s1, s2, s3);
+      let s4 = Math.round(Math.random());
+      Svjetla(s1, s2, s3, s4);
     }
-    function OnOff(displayVrijednost) {
+
+    //Mode 4 dodat (ne svjetlo nego mod)
+    //Izgasena zuta kad se pale 
+
+    function mod4() {           //dodato crveno
+      setTimeout(function () {
+        Svjetla(1, 0, 1, 1);           // (1,0,1) - zuta izgasena 
+      }, 1000);
+      setTimeout(function () {
+        Svjetla(0, 0, 0, 0);         //sva izgasena  
+      }, 2000);
+    }
+
+
+
+    function OnOff(displayVrijednost) {   //crvena
       zelena.style.display = displayVrijednost;
       zuta.style.display = displayVrijednost;
       plava.style.display = displayVrijednost;
+      crvena.style.display = displayVrijednost;
     }
+
     function OcistiInterval() {
       clearInterval(interval);
       interval = null;
     }
+
+
     db.ref('/Glavni/Dugme').on('value', dugme => {
 
       if (dugme.val() == true) {
-        OcistiInterval()
+        OcistiInterval();
         OnOff('block');
-        Svjetla(1, 1, 1);
+        Svjetla(1, 1, 1, 1);    //crvena
         db.ref('/Glavni/Mod').set(0);
       }
       else if (dugme.val() == false) {
-        OcistiInterval()
+        OcistiInterval();
         db.ref('/Glavni/Mod').set(0);
         OnOff('none');
       }
@@ -190,21 +245,24 @@
 
       switch (mod.val()) {
         case 0:
-          OcistiInterval()
-          interval = setInterval(Svjetla, 500, 1, 1, 1);
+          OcistiInterval();
+          interval = setInterval(Svjetla, 500, 1, 1, 1); (nazi)
           break;
         case 1:
-          clearInterval(interval);
-          interval = null;
+          OcistiInterval();
           interval = setInterval(mod1, 3000);
           break;
         case 2:
-          OcistiInterval()
+          OcistiInterval();
           interval = setInterval(mod2, 3000);
           break;
         case 3:
-          OcistiInterval()
+          OcistiInterval();
           interval = setInterval(mod3, 1000);
+          break;
+        case 4:                                        //mod4
+          OcistiInterval();
+          interval = setInterval(mod4, 2000);
           break;
       }
     });
