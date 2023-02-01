@@ -1,0 +1,33 @@
+//KOD ORGINAL JEDNA, DRUGA, TRECA PO REDU  (ZELENA, ZUTA, PLAVA SE PALE) 
+
+
+//staviti samo 2 sijalice 
+
+void setup()
+{
+  pinMode(10, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(11,OUTPUT);
+}
+void loop()
+{
+  //OFF ALL
+  
+  digitalWrite(11, HIGH);
+  delay(300); 
+  digitalWrite(11, LOW);
+  delay(300);
+  
+  digitalWrite(10, HIGH);  //ON
+  delay(100); // Wait for 100 millisecond(s)
+  digitalWrite(10, LOW);  //OFF
+  delay(100); 
+  
+  digitalWrite(6, HIGH);
+  delay(400); 
+  digitalWrite(6, LOW);
+  delay(400); 
+}
+
+
+
