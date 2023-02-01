@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Simple light IOT</title>
+  <title>OTIS</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
     height: 100px;
   }
 
-  /*Dodato svjetlo CRVENO*/
+  
   .square4 {
     background-color: rgb(91, 30, 2);
     width: 100px;
@@ -44,7 +44,7 @@
   }
 
   .squareWrapper {
-    /*Oko svjetla crni krug*/
+    /*Around lights black square*/
     border: 1px solid black;
     width: 100px;
     height: 100px;
@@ -65,7 +65,7 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>DRIOT - LIGHTS </h1>
+      <h1>OTIS </h1>
 
       <p>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</p>
       <br>
@@ -74,12 +74,6 @@
       <a href="https://firebase.google.com/"> Firebase login | </a>
       <a href="https://www.tinkercad.com/">Tinkercad</a>
     </div>
-
-    <h4> Dekorativne svjetiljke izumio je Carl Otis, zaposlenik u NOMA Electric Company 1940 – ih. NOMA je tada
-      prodavala na milione svake godine. U 21 vijeku,
-      kada je tehnologija napredovala možemo da koristimo LED svjetla za ukrašavanje jelke, domova, poslovnih objekata
-      tokom čitave godine
-    </h4>
 
   </div>
 
@@ -133,19 +127,19 @@
   <script>
     const firebaseConfig = {
 
-      apiKey: "AIzaSyCnLuWDJDOuUmBvdiUkp2dLYJ9I93zC2zA",
+      apiKey: "your-api-key",
 
-      authDomain: "jpl-app.firebaseapp.com",
+      authDomain: "your-project-id.firebaseapp.com",
 
-      databaseURL: "https://jpl-app-default-rtdb.europe-west1.firebasedatabase.app",
+      databaseURL: "https://your-project-id.firebaseio.com",
 
-      projectId: "jpl-app",
+      projectId: "your-project-id",
 
-      storageBucket: "jpl-app.appspot.com",
+      storageBucket: "your-project-id.appspot.com",
 
-      messagingSenderId: "1035340751332",
+      messagingSenderId: "your-sender-id",
 
-      appId: "1:1035340751332:web:9938fa284a213a9ddca7f1"
+      appId: "your-app-id"
 
     };
 
@@ -155,7 +149,7 @@
     let zelena = document.querySelector('.square3');
     let zuta = document.querySelector('.square1');
     let plava = document.querySelector('.square2');
-    let crvena = document.querySelector('.square4');  //Dodata crvena
+    let crvena = document.querySelector('.square4');  //added the red one light
 
     let interval;
 
@@ -163,34 +157,34 @@
       zelena.style.opacity = s1;
       zuta.style.opacity = s2;
       plava.style.opacity = s3;
-      crvena.style.opacity = s4; //dodata crvena
+      crvena.style.opacity = s4; //added the red one light
     }
 
     function mod1() {
-      Svjetla(1, 0, 0, 0);          //crvena  //opposite 0,0,1
+      Svjetla(1, 0, 0, 0);          
 
       setTimeout(function () {
-        Svjetla(1, 0, 0, 0);         //crvena   //0, 1, 0
+        Svjetla(1, 0, 0, 0);         
       }, 1000);
       setTimeout(function () {
-        Svjetla(0, 1, 0, 0);         //crvena   //0, 1, 0
+        Svjetla(0, 1, 0, 0);         
       }, 1000);
       //1000 sek 
       setTimeout(function () {
-        Svjetla(0, 0, 1, 0);       //crvena     //1, 0, 0
+        Svjetla(0, 0, 1, 0);       
       }, 2000);
 
       setTimeout(function () {
-        Svjetla(0, 0, 0, 1);         //crvena   //0, 1, 0
+        Svjetla(0, 0, 0, 1);         
       }, 2500);
     }
 
     function mod2() {
       setTimeout(function () {
-        Svjetla(1, 1, 1, 1);           //deff:sva upaljena (1,1,1)   (1,0,1) - zuta izgasena 
+        Svjetla(1, 1, 1, 1);           //default all lights ON
       }, 1000);
       setTimeout(function () {
-        Svjetla(0, 0, 0, 0);         //sva izgasena  
+        Svjetla(0, 0, 0, 0);         //all lights OFF 
       }, 2000);
     }
 
@@ -202,21 +196,21 @@
       Svjetla(s1, s2, s3, s4);
     }
 
-    //Mode 4 dodat (ne svjetlo nego mod)
-    //Izgasena zuta kad se pale 
+    //Mode4 
+    //Turned off yellow (one of possibilities) 
 
-    function mod4() {           //dodato crveno
+    function mod4() {           //added red light
       setTimeout(function () {
-        Svjetla(1, 0, 1, 1);           // (1,0,1) - zuta izgasena 
+        Svjetla(1, 0, 1, 1);           
       }, 1000);
       setTimeout(function () {
-        Svjetla(0, 0, 0, 0);         //sva izgasena  
+        Svjetla(0, 0, 0, 0);         
       }, 2000);
     }
 
 
 
-    function OnOff(displayVrijednost) {   //crvena
+    function OnOff(displayVrijednost) {   //the red one
       zelena.style.display = displayVrijednost;
       zuta.style.display = displayVrijednost;
       plava.style.display = displayVrijednost;
@@ -234,7 +228,7 @@
       if (dugme.val() == true) {
         OcistiInterval();
         OnOff('block');
-        Svjetla(1, 1, 1, 1);    //crvena
+        Svjetla(1, 1, 1, 1);    //red
         db.ref('/Glavni/Mod').set(0);
       }
       else if (dugme.val() == false) {
@@ -263,7 +257,7 @@
           OcistiInterval();
           interval = setInterval(mod3, 2000);
           break;
-        case 4:                                        //mod4
+        case 4:                                        //mode4
           OcistiInterval();
           interval = setInterval(mod4, 2000);
           break;

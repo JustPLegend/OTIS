@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Simple light IOT</title>
+  <title>OTIS</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>DRIOT </h1>
+      <h1>OTIS </h1>
 
       <p>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</p>
       <br>
@@ -41,11 +41,7 @@
       <a href="https://www.tinkercad.com/">Tinkercad</a>
     </div>
     <br>
-    <h4> Dekorativne svjetiljke izumio je Carl Otis, zaposlenik u NOMA Electric Company 1940 – ih. NOMA je tada
-      prodavala na milione svake godine. U 21 vijeku,
-      kada je tehnologija napredovala možemo da koristimo LED svjetla za ukrašavanje jelke, domova, poslovnih objekata
-      tokom čitave godine
-    </h4>
+    
 
   </div>
 
@@ -68,10 +64,10 @@
   <br>
   <div class="container">
     <hr>
-    <h5> MODE 1 - Svjetiljke će po redu da se pale, 1, 2, 3</h5>
-    <h5> MODE 2 - Svjetiljke će da se sve pale / gase </h5>
-    <h5> MODE 3 - Svjetiljke će random da se pale / gase </h5>
-    <h5> Mode 4 - Izgasena zuta svjetiljka </h5>
+    <h5> MODE 1 - Lights will be turned ON 1, then 2, then 3</h5>
+    <h5> MODE 2 - Lights will be turned ON/OFF all in the same time.  </h5>
+    <h5> MODE 3 - Lights will be turned ON/OFF random </h5>
+    <h5> Mode 4 - The yellow light will be turned OFF (only the yellow one) </h5>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
@@ -81,19 +77,19 @@
 
     const firebaseConfig = {
 
-      apiKey: "AIzaSyCnLuWDJDOuUmBvdiUkp2dLYJ9I93zC2zA",
+      apiKey: "your-api-key",
 
-      authDomain: "jpl-app.firebaseapp.com",
+      authDomain: "your-project-id.firebaseapp.com",
 
-      databaseURL: "https://jpl-app-default-rtdb.europe-west1.firebasedatabase.app",
+      databaseURL: "https://your-project-id.firebaseio.com",
 
-      projectId: "jpl-app",
+      projectId: "your-project-id",
 
-      storageBucket: "jpl-app.appspot.com",
+      storageBucket: "your-project-id.appspot.com",
 
-      messagingSenderId: "1035340751332",
+      messagingSenderId: "your-sender-id",
 
-      appId: "1:1035340751332:web:9938fa284a213a9ddca7f1"
+      appId: "your-app-id"
 
     };
     firebase.initializeApp(firebaseConfig);
