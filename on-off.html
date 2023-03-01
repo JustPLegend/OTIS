@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>OTIS</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+  .jumbotron {
+    background-color: #7d09d3;
+    color: #fff;
+  }
+
+  h4 {
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  a {
+    color: #fff;
+
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>OTIS </h1>
+
+      <p>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</p>
+      <br>
+      <a href="https://tinyurl.com/signInArduino"> Sign In Arduino | </a>
+      <a href="https://firebase.google.com/"> Firebase login | </a>
+      <a href="https://www.tinkercad.com/">Tinkercad</a>
+    </div>
+    <br>
+    
+
+  </div>
+
+  <br>
+  <div class="container">
+    <button class="btn-success" onclick="PostaviVrijednost(true,'/Glavni/Dugme')"> ON </button>
+    <button class="btn-danger" onclick="PostaviVrijednost(false,'/Glavni/Dugme')"> OFF</button>
+    <button class="mode_btn" onclick="PostaviVrijednost(1,'/Glavni/Mod')">Mode 1</button>
+    <button class="mode_btn" onclick="PostaviVrijednost(2,'/Glavni/Mod')">Mode 2</button>
+    <button class="mode_btn" onclick="PostaviVrijednost(3,'/Glavni/Mod')">Mode 3</button>
+    <!--  MODE 4 -->
+    <button class="mode_btn" onclick="PostaviVrijednost(4,'/Glavni/Mod')"> Mode 4</button>
+
+
+    <button class="reset_btn" onclick="PostaviVrijednost(0,'/Glavni/Mod')">Reset</button>
+
+  </div>
+
+  <br>
+  <br>
+  <div class="container">
+    <hr>
+    <h5> MODE 1 - Lights will be turned ON 1, then 2, then 3</h5>
+    <h5> MODE 2 - Lights will be turned ON/OFF all in the same time.  </h5>
+    <h5> MODE 3 - Lights will be turned ON/OFF random </h5>
+    <h5> Mode 4 - The yellow light will be turned OFF (only the yellow one) </h5>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+  <script>
+
+    const firebaseConfig = {
+
+      apiKey: "your-api-key",
+
+      authDomain: "your-project-id.firebaseapp.com",
+
+      databaseURL: "https://your-project-id.firebaseio.com",
+
+      projectId: "your-project-id",
+
+      storageBucket: "your-project-id.appspot.com",
+
+      messagingSenderId: "your-sender-id",
+
+      appId: "your-app-id"
+
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const db = firebase.database();
+    function PostaviVrijednost(vrijednost, putanja) {
+      db.ref(putanja).set(vrijednost);
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
